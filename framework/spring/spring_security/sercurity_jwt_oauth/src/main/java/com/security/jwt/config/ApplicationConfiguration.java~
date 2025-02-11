@@ -29,13 +29,6 @@ public class ApplicationConfiguration {
         return username -> userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
-    /**
-     * Configures an AuthenticationProvider bean using a DaoAuthenticationProvider.
-     * Sets the UserDetailsService and PasswordEncoder for the authentication provider.
-     *
-     * @return an AuthenticationProvider configured with the necessary user details service
-     *         and password encoder for authentication processes.
-     */
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
